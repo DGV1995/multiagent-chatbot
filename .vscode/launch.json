@@ -1,0 +1,60 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug FastAPI Backend",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/backend/main.py",
+            "args": [],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}",
+                "AZURE_OPENAI_API_KEY": "${env:AZURE_OPENAI_API_KEY}",
+                "AZURE_OPENAI_ENDPOINT": "${env:AZURE_OPENAI_ENDPOINT}",
+                "AZURE_OPENAI_API_VERSION": "${env:AZURE_OPENAI_API_VERSION}",
+                "AZURE_OPENAI_DEPLOYMENT_NAME": "${env:AZURE_OPENAI_DEPLOYMENT_NAME}"
+            },
+            "envFile": "${workspaceFolder}/.env",
+            "justMyCode": true,
+            "stopOnEntry": false,
+            "autoReload": {
+                "enable": true
+            }
+        },
+        {
+            "name": "Debug FastAPI with Uvicorn",
+            "type": "python",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "backend.main:app",
+                "--reload",
+                "--host",
+                "0.0.0.0",
+                "--port",
+                "8000"
+            ],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "envFile": "${workspaceFolder}/.env",
+            "justMyCode": false,
+            "stopOnEntry": false
+        },
+        {
+            "name": "Launch Frontend Server",
+            "type": "python",
+            "request": "launch",
+            "module": "http.server",
+            "args": ["3000"],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/frontend",
+            "justMyCode": false,
+            "stopOnEntry": false
+        }
+    ]
+}
