@@ -2,29 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug FastAPI Backend",
-            "type": "python",
-            "request": "launch",
-            "program": "${workspaceFolder}/backend/main.py",
-            "args": [],
-            "console": "integratedTerminal",
-            "cwd": "${workspaceFolder}",
-            "env": {
-                "PYTHONPATH": "${workspaceFolder}",
-                "AZURE_OPENAI_API_KEY": "${env:AZURE_OPENAI_API_KEY}",
-                "AZURE_OPENAI_ENDPOINT": "${env:AZURE_OPENAI_ENDPOINT}",
-                "AZURE_OPENAI_API_VERSION": "${env:AZURE_OPENAI_API_VERSION}",
-                "AZURE_OPENAI_DEPLOYMENT_NAME": "${env:AZURE_OPENAI_DEPLOYMENT_NAME}"
-            },
-            "envFile": "${workspaceFolder}/.env",
-            "justMyCode": true,
-            "stopOnEntry": false,
-            "autoReload": {
-                "enable": true
-            }
-        },
-        {
-            "name": "Debug FastAPI with Uvicorn",
+            "name": "Debug FastAPI",
             "type": "python",
             "request": "launch",
             "module": "uvicorn",
