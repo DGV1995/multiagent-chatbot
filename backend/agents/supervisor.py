@@ -1,5 +1,6 @@
 from langgraph_supervisor import create_supervisor
 
+from backend.agents.bookings import bookings_agent
 from backend.agents.maths import maths_agent
 from backend.agents.openai_client import get_openai_client
 
@@ -14,7 +15,7 @@ def get_supervisor():
 
     if not _supervisor:
         _supervisor = create_supervisor(
-            agents=[maths_agent],
+            agents=[maths_agent, bookings_agent],
             model=get_openai_client(),
             prompt="You have to help the user with their query by deciding which agent to use.",
         )
