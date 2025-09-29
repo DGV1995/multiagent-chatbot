@@ -23,12 +23,7 @@ def get_openai_client():
         token_provider = get_bearer_token_provider(
             DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default"
         )
-        # _openai_client = AzureOpenAI(
-        #     azure_endpoint=endpoint,
-        #     azure_ad_token_provider=token_provider,
-        #     azure_deployment=azure_deployment,
-        #     api_version=api_version,
-        # )
+
         _openai_client = AzureChatOpenAI(
             azure_deployment=AZURE_OPENAI_DEPLOYMENT,
             azure_endpoint=AZURE_OPENAI_ENDPOINT,

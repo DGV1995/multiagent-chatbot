@@ -12,6 +12,7 @@ dependencies = [
     "langchain-openai>=0.3.33",
     "langgraph>=0.6.7",
     "langgraph-supervisor>=0.0.29",
+    "langgraph-swarm>=0.0.14",
     "openai>=1.109.1",
     "python-dotenv>=1.1.1",
     "uvicorn>=0.37.0",

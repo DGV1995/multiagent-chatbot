@@ -22,17 +22,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# # Set up Azure OpenAI client
-# token_provider = get_bearer_token_provider(
-#     DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default"
-# )
-
-# client = AzureOpenAI(
-#     azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-#     azure_ad_token_provider=token_provider,
-#     api_version=os.getenv("OPENAI_API_VERSION", "2024-10-21"),
-# )
-
 
 @app.get("/")
 async def root():
@@ -55,6 +44,8 @@ async def chat_endpoint(chat_data: ChatMessage, supervisor=Depends(get_superviso
 
         # Call the supervisor agent
         result = supervisor.invoke({"messages": messages})
+
+        # Clean backslashes
         ai_response = result["messages"][-1].content.replace("\\", "")
 
         return ChatResponse(response=ai_response, success=True)
